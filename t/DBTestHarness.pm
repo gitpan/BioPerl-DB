@@ -1,3 +1,4 @@
+# $Id: DBTestHarness.pm,v 1.17 2004/08/11 15:48:44 lapp Exp $
 
 =pod
 
@@ -37,59 +38,64 @@ use Sys::Hostname 'hostname';
 
 use DBI;
 use Carp;
+use Bio::DB::BioDB;
+use Bio::DB::SimpleDBContext;
 
 #Package variable for unique database name
 my $counter=0;
 
-{
+# Default settings as a hash
+my $dflt = {
+    'driver'        => 'mysql',
+    'host'          => 'localhost',
+    'user'          => 'root',
+    'port'          => undef,
+    'password'      => '',
+    'schema_sql'    => ['../biosql-schema/sql/biosqldb-mysql.sql'],
+    'database'      => 'biosql',
+    'module'        => 'Bio::DB::BioSQL::DBAdaptor'
+    };
+
     # This is a list of possible entries in the config
     # file "DBHarness.conf"
-    my %known_field = map {$_, 1} qw(
+my %known_field = map {$_, 1} qw(
         driver
         host
         user
         port
         password
         schema_sql
+	dbname
+        database
         module
-        );
+	);
     
-    sub new {
-        my( $pkg,$db ) = @_;
-
-        $counter++;
-        # Get config from file, or use default values
-        my $self;
-	if( ! $db || $db eq 'basicseqdb' ) {
-	    $self = do 'DBHarness.conf' || {
-		'driver'        => 'mysql',
-		'host'          => 'localhost',
-		'user'          => 'root',
-		'port'          => undef,
-		'password'      => undef,
-		'schema_sql'    => ['./sql/basicseqdb-mysql.sql'],
-		'module'        => 'Bio::DB::SQL::DBAdaptor'
-		};
-	} elsif ( $db eq 'markerdb' ) {
-	     $self = do 'DBHarness.markerdb.conf' || {
-		'driver'        => 'mysql',
-		'host'          => 'localhost',
-		'user'          => 'root',
-		'port'          => undef,
-		'password'      => undef,
-		'schema_sql'    => ['./sql/markerdb-mysql.sql'],
-		'module'        => 'Bio::DB::Map::SQL::DBAdaptor'
-		};
-	}
-        foreach my $f (keys %$self) {
-            confess "Unknown config field: '$f'" unless $known_field{$f};
-        }
-        bless $self, $pkg;
-        $self->create_db;
-	
-        return $self;
+sub new {
+    my( $pkg,$db ) = @_;
+    
+    $counter++;
+    my $self;
+    
+    confess "Must provide db, no default any more" unless $db;
+    # Get config from file, or use default values
+    if( $db eq 'biosql' ) {
+	$self = do 'DBHarness.biosql.conf';
+    } elsif ( $db eq 'markerdb' ) {
+	$self = do 'DBHarness.markerdb.conf';
+	$self->{"schema_sql"} = ['./sql/markerdb-mysql.sql']
+	    unless $self->{"schema_sql"};
+    } else {
+	confess "Don't know about db $db : are you sure you meant to say $db?";
     }
+    foreach my $f (keys %$self) {
+	confess "Unknown config field: '$f'" unless $known_field{$f};
+    }
+    bless $self, $pkg;
+    $self->create_db() unless exists($self->{"dbname"});
+    
+    return $self;
 }
+
 
 sub driver {
     my( $self, $value ) = @_;
@@ -106,7 +112,7 @@ sub host {
     if ($value) {
         $self->{'host'} = $value;
     }
-    return $self->{'host'} || confess "host not set";
+    return $self->{'host'};
 }
 
 sub user {
@@ -115,7 +121,7 @@ sub user {
     if ($value) {
         $self->{'user'} = $value;
     }
-    return $self->{'user'} || confess "user not set";
+    return $self->{'user'};
 }
 
 sub port {
@@ -146,10 +152,23 @@ sub schema_sql {
 }
 
 sub dbname {
-    my( $self ) = @_;
+    my( $self, $value ) = @_;
 
-    $self->{'_dbname'} ||= $self->_create_db_name();
-    return $self->{'_dbname'};
+    if($value && (! exists($self->{'dbname'}))) {
+	$self->{'dbname'} = $value;
+    }
+    $self->{'dbname'} = $self->_create_db_name()
+	unless exists($self->{'dbname'});
+    return $self->{'dbname'};
+}
+
+sub database {
+    my( $self, $value ) = @_;
+
+    if($value && (! exists($self->{'database'}))) {
+	$self->{'database'} = $value;
+    }
+    return $self->{'database'};
 }
 
 # convenience method: by calling it, you get the name of the database,
@@ -158,9 +177,9 @@ sub dbname {
 sub pause {
     my ($self) = @_;
     my $db = $self->{'_dbname'};
-    print STDERR "pausing to inspect database; name of databse is:  $db\n";
+    print STDERR "pausing to inspect database; name of database is:  $db\n";
     print STDERR "press ^D to continue\n";
-    `cat `;
+    while(<>) { 1; }
 }
 
 sub module {
@@ -183,20 +202,32 @@ sub create_db {
     
     ### FIXME: not portable between different drivers
     my $locator = 'dbi:'. $self->driver .':host='. $self->host .';';
+    if ($self->driver eq "Pg") {
+        # HACK! with DBD::Pg we *must* connect to a db
+        $locator = 'dbi:Pg:dbname=template1';
+        $locator .= ";host=".$self->host if $self->host;
+    }
+    print STDERR "locator:$locator\n" if $ENV{SQL_TRACE};
     my $db = DBI->connect(
         $locator, $self->user, $self->password, {RaiseError => 1}
         ) or confess "Can't connect to server";
     my $db_name = $self->dbname;
     $db->do("CREATE DATABASE $db_name");
     $db->disconnect;
+    push(@{$self->{"_created_dbs"}}, $db_name);
     
     $self->do_sql_file(@{$self->schema_sql});
 }
 
 sub test_locator {
     my( $self ) = @_;
-    
-    my $locator = 'dbi:'. $self->driver .':database='. $self->dbname;
+
+    my %dbname_param = ("mysql"  => "database=",
+			"Pg"     => "dbname=",
+			"Oracle" => "");
+
+    my $locator = 'dbi:'. $self->driver .":". $dbname_param{$self->driver()} .
+	$self->dbname;
     foreach my $meth (qw{ host port }) {
         if (my $value = $self->$meth()) {
             $locator .= ";$meth=$value";
@@ -207,9 +238,9 @@ sub test_locator {
 
 
 sub db_handle {
-    my( $self ) = @_;
+    my( $self, $no_create ) = @_;
     
-    unless ($self->{'_db_handle'}) {
+    unless ($self->{'_db_handle'} || $no_create) {
         $self->{'_db_handle'} = DBI->connect(
             $self->test_locator, $self->user, $self->password, {RaiseError => 1}
             ) or confess "Can't connect to server";
@@ -218,18 +249,29 @@ sub db_handle {
 }
 
 sub get_DBAdaptor {
-    my( $self ) = @_;
+    my( $self, $dbc ) = @_;
     
-    my $module = $self->module;
+    if(! $dbc) {
+	return $self->get_DBContext()->dbadaptor();
+    }
+    return Bio::DB::BioDB->new(-database   => $self->database,
+			       -dbcontext  => $dbc,
+                               -printerror => $ENV{HARNESS_VERBOSE},
+                               -verbose    => $ENV{HARNESS_VERBOSE},
+                               );
+}
 
-    return $module->new( 
-			 -"dbname" => $self->dbname,
-			 -"host"   => $self->host,
-			 -"user"   => $self->user,
-			 -"pass"   => $self->password,
-			 -"port"   => $self->port
-			 );
-
+sub get_DBContext {
+    my ($self) = @_;
+    my $dbc = Bio::DB::SimpleDBContext->new("-driver" => $self->driver,
+					    "-dbname" => $self->dbname,
+					    "-host"   => $self->host,
+					    "-user"   => $self->user,
+					    "-pass"   => $self->password,
+					    "-port"   => $self->port);
+    my $dbadp = $self->get_DBAdaptor($dbc);
+    $dbc->dbadaptor($dbadp);
+    return $dbc;
 }
 
 sub do_sql_file {
@@ -273,12 +315,29 @@ sub validate_sql {
 
 sub DESTROY {
     my( $self, $file ) = @_;
-    
-    if (my $dbh = $self->db_handle) {
-        my $db_name = $self->dbname;
-        $dbh->do("DROP DATABASE $db_name");
-        $dbh->disconnect;
+    my $dbh = $self->db_handle("no_create");
+
+    if($dbh) {
+	$dbh->disconnect;
+	$dbh = undef;
     }
+    while(my $db_name = shift(@{$self->{"_created_dbs"}})) {
+	if(! $dbh) {
+	    ### FIXME: not portable between different drivers
+	    my $locator = 'dbi:'. $self->driver .':host='. $self->host .';';
+	    if ($self->driver eq "Pg") {
+		# HACK! with DBD::Pg we *must* connect to a db
+		$locator = 'dbi:Pg:dbname=template1';
+		$locator .= ";host=".$self->host if $self->host;
+	    }
+	    my $db = DBI->connect($locator, $self->user, $self->password,
+				  {RaiseError => 0})
+		or warn "Can't connect to server ($locator), ".
+		        "can't drop database $db_name: $@\n";
+	}
+	$dbh->do("DROP DATABASE $db_name") if $dbh;
+    }
+    $dbh->disconnect() if $dbh;
 }
 
 1;

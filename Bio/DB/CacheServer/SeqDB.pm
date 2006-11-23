@@ -1,4 +1,4 @@
-
+# $Id: SeqDB.pm,v 1.5 2006/09/11 17:54:34 bosborne Exp $
 
 #
 # BioPerl module for Bio::CacheServer::SeqDB
@@ -37,11 +37,10 @@ of the Bioperl mailing lists.  Your participation is much appreciated.
 =head2 Reporting Bugs
 
 Report bugs to the Bioperl bug tracking system to help us keep track
-the bugs and their resolution.  Bug reports can be submitted via email
-or the web:
+the bugs and their resolution.  Bug reports can be submitted via 
+the web:
 
-  bioperl-bugs@bio.perl.org
-  http://bio.perl.org/bioperl-bugs/
+  http://bugzilla.open-bio.org/
 
 =head1 AUTHOR - Ewan Birney
 
@@ -51,7 +50,8 @@ Describe contact details here
 
 =head1 APPENDIX
 
-The rest of the documentation details each of the object methods. Internal methods are usually preceded with a _
+The rest of the documentation details each of the object
+methods. Internal methods are usually preceded with a _
 
 =cut
 
@@ -68,29 +68,31 @@ use strict;
 use Bio::Root::RootI;
 use Bio::DB::SeqI;
 
-@ISA = qw(Bio::DB::SeqI Bio::Root::RootI);
 
 # although we expect to be handed one of this, using
 # this ensures someone runs this component
-use Bio::DB::SQL::DBAdaptor;
-
-@ISA = qw(Bio::DB::SeqI);
+use Bio::DB::BioSQL::DBAdaptor;
+@ISA = qw(Bio::DB::SeqI Bio::Root::RootI);
 # new() can be inherited from Bio::Root::RootI
 
 sub new {
     my ($class,@args) = @_;
 
-    my $self = {};
-    bless $self,$class;
+    my $self = bless {}, ref($class) || $class;
 
-    my($read,$write_dbadaptor,$dbname) = $self->_rearrange(['READ_DB','WRITE_DBADAPTOR','DBNAME'],@args);
+    my($read,$write_dbadaptor,
+       $dbname) = $self->_rearrange([qw(READ_DB
+					WRITE_DBADAPTOR
+					DBNAME)],@args);
     
-    if( !defined $read || !ref $read || !$read->isa('Bio::DB::SeqI')) {
+    if( !defined $read || !ref $read || 
+	!$read->isa('Bio::DB::SeqI')) {
 	$self->throw("No read database or read database [$read] is not a Bio::DB::SeqI\n");
     }
 
-    if( !defined $write_dbadaptor || !ref $write_dbadaptor || !$write_dbadaptor->isa('Bio::DB::SQL::DBAdaptor')) {
-	$self->throw("No write dbadaptor or write database [$write_dbadaptor] is not a Bio::DB::SQL::DBAdaptor\n");
+    if( !defined $write_dbadaptor || !ref $write_dbadaptor || 
+	!$write_dbadaptor->isa('Bio::DB::BioSQL::DBAdaptor')) {
+	$self->throw("No write dbadaptor or write database [$write_dbadaptor] is not a Bio::DB::BioSQL::DBAdaptor\n");
     }
 
     if( !defined $dbname ) {
@@ -110,7 +112,7 @@ sub new {
 }
 
 
-=head1 Methods inherieted from Bio::DB::RandomAccessI
+=head1 Methods inherited from Bio::DB::RandomAccessI
 
 =head2 get_Seq_by_id
 
@@ -313,7 +315,9 @@ sub get_Seq_by_primary_id {
 
 
 
-=head2 Get/Sets for attributed stored in this object
+=head2 Get/Sets for attributes stored in this object
+
+=cut
 
 =head2 seq_adaptor
 
@@ -401,3 +405,5 @@ sub read_db{
     return $obj->{'read_db'};
 
 }
+
+1;
