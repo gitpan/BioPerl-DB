@@ -1,4 +1,4 @@
-# $Id: Pg.pm,v 1.4 2006/07/04 04:38:07 mauricio Exp $
+# $Id: Pg.pm 14846 2008-09-02 03:56:46Z lapp $
 #
 # BioPerl module for Bio::DB::DBI::Pg
 #
@@ -86,7 +86,7 @@ use Bio::DB::DBI::base;
 =head2 new
 
  Title   : new
- Usage   : my $obj = new Bio::DB::DBI::Pg();
+ Usage   : my $obj = Bio::DB::DBI::Pg->new();
  Function: Builds a new Bio::DB::DBI::Pg object using the passed named 
            parameters.
  Returns : an instance of Bio::DB::DBI::Pg
@@ -130,11 +130,15 @@ sub next_id_value{
     }
     # we need to construct the sql statement
     $seq = $self->sequence_name() unless $seq;
-    my $row = $dbh->selectrow_arrayref("SELECT nextval('$seq')");
+    # use a cached (prepared) statement for this, and if for any
+    # reason it is still active when we request it, it fill be
+    # finish()ed first.
+    my $sth = $dbh->prepare_cached("SELECT nextval('$seq')", undef, 1);
+    my $row = $dbh->selectrow_arrayref($sth);
     my $dbid;
-    if(! ($row && @$row && ($dbid = $row->[0]))) {
-	$self->throw("no record inserted or wrong database handle -- ".
-		     "probably internal error");
+    if (! ($row && ($dbid = $row->[0]))) {
+	$self->throw("Does sequence '$seq' exist? -- ".
+		     "Probably internal error: ".$sth->errstr);
     }
     return $dbid;
 }
@@ -169,11 +173,15 @@ sub last_id_value{
     }
     # we need to construct the sql statement
     $seq = $self->sequence_name() unless $seq;
-    my $row = $dbh->selectrow_arrayref("SELECT currval('$seq')");
+    # use a cached (prepared) statement for this, and if for any
+    # reason it is still active when we request it, it fill be
+    # finish()ed first.
+    my $sth = $dbh->prepare_cached("SELECT currval('$seq')", undef, 1);
+    my $row = $dbh->selectrow_arrayref($sth);
     my $dbid;
-    if(! ($row && @$row && ($dbid = $row->[0]))) {
+    if (! ($row && ($dbid = $row->[0]))) {
 	$self->throw("no record inserted or wrong database handle -- ".
-		     "probably internal error");
+		     "probably internal error: ".$sth->errstr);
     }
     return $dbid;
 }
@@ -224,6 +232,40 @@ sub build_dsn{
         $dsn .= ";port=" . $dbc->port() if $dbc->port();
     }
     return $dsn;
+}
+
+=head2 new_connection
+
+ Title   : new_connection
+ Usage   :
+ Function: Obtains a new connection handle to the database represented by the
+           the DBContextI object, passing additional args to the DBI->connect()
+           method.
+
+           We need to override this here in order to support setting a
+           schema for PostgreSQL.
+
+ Example :
+ Returns : an open DBI database handle
+ Args    : A Bio::DB::DBContextI implementing object. Additional hashref
+           parameter to pass to DBI->connect().
+
+
+=cut
+
+sub new_connection{
+    my $self = shift;
+    my ($dbc) = @_; # we don't need the parameter hash here
+
+    my $dbh = $self->SUPER::new_connection(@_);
+    if ($dbc->schema) {
+        my $rv = $dbh->do("SET search_path TO ".$dbc->schema().", public");
+        if (!$rv) {
+            $self->warn("Failed to add schema '".$dbc->schema()
+                        ."' to search path; is the server < v7.4?");
+        }
+    }
+    return $dbh;
 }
 
 1;

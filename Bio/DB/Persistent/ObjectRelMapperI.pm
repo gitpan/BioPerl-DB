@@ -1,4 +1,4 @@
-# $Id: ObjectRelMapperI.pm,v 1.3 2006/07/04 04:38:07 mauricio Exp $
+# $Id: ObjectRelMapperI.pm 566 2006-07-04 04:38:07Z mauricio $
 #
 # BioPerl module for Bio::DB::Persistent::ObjectRelMapperI
 #

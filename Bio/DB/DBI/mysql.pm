@@ -1,4 +1,4 @@
-# $Id: mysql.pm,v 1.8 2006/07/04 04:38:07 mauricio Exp $
+# $Id: mysql.pm 14846 2008-09-02 03:56:46Z lapp $
 #
 # BioPerl module for Bio::DB::DBI::mysql
 #
@@ -87,7 +87,7 @@ use Bio::DB::DBI::base;
 =head2 new
 
  Title   : new
- Usage   : my $obj = new Bio::DB::DBI::mysql();
+ Usage   : my $obj = Bio::DB::DBI::mysql->new();
  Function: Builds a new Bio::DB::DBI::mysql object using the passed named 
            parameters.
  Returns : an instance of Bio::DB::DBI::mysql
@@ -153,16 +153,7 @@ sub last_id_value{
 	$self->throw("no database handle supplied to last_id_value() --".
 		     "last_id and currval operations are connection-specific");
     }
-    my $sth = $dbh->prepare("SELECT last_insert_id()");
-    my $dbid;
-    if($sth->execute()) {
-	my $row = $sth->fetchrow_arrayref();
-	if(! ($row && @$row && ($dbid = $row->[0]))) {
-	    $self->throw("no record inserted or wrong database handle -- ".
-			 "probably internal error");
-	}
-    }
-    return $dbid;
+    return $dbh->{'mysql_insertid'};
 }
 
 =head2 ifnull_sqlfunc

@@ -1,4 +1,4 @@
-# $Id: TransactionListener.pm,v 1.3 2006/07/04 22:23:12 mauricio Exp $
+# $Id: TransactionListener.pm 611 2007-06-14 15:29:15Z sendu $
 #
 # BioPerl module for Bio::DB::DBI::TransactionListener
 #
@@ -117,7 +117,7 @@ my $counter = 1;
 =head2 new
 
  Title   : new
- Usage   : my $obj = new Bio::DB::DBI::TransactionListener();
+ Usage   : my $obj = Bio::DB::DBI::TransactionListener->new();
  Function: Builds a new Bio::DB::DBI::TransactionListener object 
  Returns : an instance of Bio::DB::DBI::TransactionListener
  Args    :

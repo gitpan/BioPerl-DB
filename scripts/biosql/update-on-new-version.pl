@@ -1,4 +1,4 @@
-# $Id: update-on-new-version.pl,v 1.2 2003/07/09 22:01:21 lapp Exp $
+# $Id: update-on-new-version.pl 454 2003-07-09 22:01:21Z lapp $
 #
 # This is a closure that may be used as an argument to the --mergeobjs
 # option of load-seqdatabase.pl.

@@ -1,4 +1,4 @@
-# $Id: MultiDB.pm,v 1.4 2003/06/03 09:36:41 heikki Exp $
+# $Id: MultiDB.pm 452 2003-06-03 09:36:42Z heikki $
 # Adaptor for Multiple BioSQL databases.
 # By Juguang Xiao <juguang@tll.org.sg> 
 

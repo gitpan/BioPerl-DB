@@ -5,7 +5,7 @@
 # 
 # Tested with mysql.
 #
-# $Id: clean_ontology.pl,v 1.3 2004/06/08 17:16:18 lapp Exp $
+# $Id: clean_ontology.pl 503 2004-06-08 17:16:18Z lapp $
 #
 # Cared for by Juguang Xiao, juguang@tll.org.sg
 #

@@ -1,4 +1,4 @@
-# $Id: Transaction.pm,v 1.3 2006/07/04 22:23:12 mauricio Exp $
+# $Id: Transaction.pm 611 2007-06-14 15:29:15Z sendu $
 #
 # BioPerl module for Bio::DB::DBI::Transaction
 #
@@ -111,7 +111,7 @@ sub new {
 =head2 _new
 
  Title   : _new
- Usage   : my $obj = _new Bio::DB::DBI::Transaction();
+ Usage   : my $obj = Bio::DB::DBI::Transaction->_new();
  Function: Builds a new Bio::DB::DBI::Transaction object 
 
            This is a private method. If you call this method from

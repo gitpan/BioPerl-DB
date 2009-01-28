@@ -1,4 +1,4 @@
-# $Id: README,v 1.20 2004/10/17 02:58:49 lapp Exp $
+# $Id: README 537 2004-10-17 02:58:49Z lapp $
 
 The bioperl-db package contains interfaces and adaptors that work 
 with a BioSQL database and serialize and de-serialize Bioperl

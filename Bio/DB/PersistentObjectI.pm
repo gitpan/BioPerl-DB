@@ -1,4 +1,4 @@
-# $Id: PersistentObjectI.pm,v 1.5 2006/07/04 04:38:07 mauricio Exp $
+# $Id: PersistentObjectI.pm 566 2006-07-04 04:38:07Z mauricio $
 #
 # BioPerl module for Bio::DB::PersistentObjectI
 #

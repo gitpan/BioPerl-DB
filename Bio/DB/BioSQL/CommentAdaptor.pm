@@ -1,4 +1,4 @@
-# $Id: CommentAdaptor.pm,v 1.13 2006/01/19 21:38:23 lapp Exp $
+# $Id: CommentAdaptor.pm 563 2006-01-19 21:38:23Z lapp $
 #
 # BioPerl module for Bio::DB::BioSQL::CommentAdaptor
 #

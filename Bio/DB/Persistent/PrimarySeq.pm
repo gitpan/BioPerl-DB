@@ -1,4 +1,4 @@
-# $Id: PrimarySeq.pm,v 1.5 2003/07/16 04:35:03 lapp Exp $
+# $Id: PrimarySeq.pm 462 2003-07-16 04:35:03Z lapp $
 #
 # BioPerl module for Bio::DB::Persistent::PrimarySeq
 #

@@ -1,4 +1,4 @@
-# $Id: BaseDriver.pm,v 1.31 2006/09/10 02:53:47 bosborne Exp $
+# $Id: BaseDriver.pm 14602 2008-03-05 18:31:19Z cjfields $
 #
 # BioPerl module for Bio::DB::BioSQL::BaseDriver
 #
@@ -126,7 +126,7 @@ my %object_entity_map = (
 		"Bio::Ontology::PathI"                => "term_path",
 		"Bio::Ontology::Path"                 => "term_path",
 		"Bio::DB::BioSQL::PathAdaptor"        => "term_path",
-                "Bio::Ontology::OntologyI"            => "ontology",
+        "Bio::Ontology::OntologyI"            => "ontology",
 		"Bio::DB::BioSQL::OntologyAdaptor"    => "ontology",
 		# TermSynonym is a hack - there is no such object
 		"TermSynonym"                         => "term_synonym",
@@ -367,7 +367,7 @@ my %dont_select_attrs = (
 =head2 new
 
  Title   : new
- Usage   : my $obj = new Bio::DB::BioSQL::BaseDriver();
+ Usage   : my $obj = Bio::DB::BioSQL::BaseDriver->new();
  Function: Builds a new Bio::DB::BioSQL::BaseDriver object 
  Returns : an instance of Bio::DB::BioSQL::BaseDriver
  Args    :
@@ -1081,10 +1081,11 @@ sub update_object{
 	if($slotmap->{$slots[$i]} &&
 	   (substr($slotmap->{$slots[$i]},0,2) ne '=>')) {
 	    if($adp->verbose > 0) {
-		$adp->debug(substr(ref($adp),rindex(ref($adp),"::")+2).
-			    "::update: ".
-			    "binding column $j to \"" .
-			    $slotvals->[$i] . "\" ($slots[$i])\n");
+		$adp->debug(sprintf("%s::update: binding column %d to \"%s\"(%s)\n",
+                        substr(ref($adp),rindex(ref($adp),"::")+2),
+                        $j,
+                        $slotvals->[$i] || '',
+                        ($slots[$i])));
 	    }
 	    $self->bind_param($sth, $j, $slotvals->[$i]);
 	    $j++;

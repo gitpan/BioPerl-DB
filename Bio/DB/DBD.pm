@@ -1,4 +1,4 @@
-# $Id: DBD.pm,v 1.3 2006/07/04 04:38:07 mauricio Exp $
+# $Id: DBD.pm 566 2006-07-04 04:38:07Z mauricio $
 #
 # BioPerl module for Bio::DB::DBD
 #

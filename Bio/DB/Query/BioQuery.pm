@@ -1,4 +1,4 @@
-# $Id: BioQuery.pm,v 1.9 2006/09/09 21:44:38 bosborne Exp $
+# $Id: BioQuery.pm 570 2006-09-09 21:44:38Z bosborne $
 
 #
 # Copyright Chris Mungall <cmungall@fruitfly.org>

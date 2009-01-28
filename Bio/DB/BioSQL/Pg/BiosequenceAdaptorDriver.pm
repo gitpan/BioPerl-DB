@@ -1,4 +1,4 @@
-# $Id: BiosequenceAdaptorDriver.pm,v 1.6 2006/07/04 04:38:07 mauricio Exp $
+# $Id: BiosequenceAdaptorDriver.pm 566 2006-07-04 04:38:07Z mauricio $
 #
 # BioPerl module for Bio::DB::BioSQL::Pg::BiosequenceAdaptorDriver
 #

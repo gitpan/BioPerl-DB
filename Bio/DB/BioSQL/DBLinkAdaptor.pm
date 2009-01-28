@@ -1,4 +1,4 @@
-# $Id: DBLinkAdaptor.pm,v 1.15 2006/01/19 21:38:23 lapp Exp $
+# $Id: DBLinkAdaptor.pm 563 2006-01-19 21:38:23Z lapp $
 #
 # BioPerl module for Bio::DB::BioSQL::DBLinkAdaptor
 #

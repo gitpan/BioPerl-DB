@@ -1,4 +1,4 @@
-# $Id: PersistentObject.pm,v 1.8 2006/07/04 04:38:07 mauricio Exp $
+# $Id: PersistentObject.pm 611 2007-06-14 15:29:15Z sendu $
 #
 # BioPerl module for Bio::DB::Persistent::PersistentObject
 #
@@ -118,7 +118,7 @@ our %wrapper_class_map = ();
 =head2 new
 
  Title   : new
- Usage   : my $obj = new Bio::DB::Persistent::PersistentObject();
+ Usage   : my $obj = Bio::DB::Persistent::PersistentObject->new();
  Function: Builds a new Bio::DB::Persistent::PersistentObject object 
  Returns : an instance of Bio::DB::Persistent::PersistentObject
  Args    : -object => $obj_to_be_wrapped (mandatory)

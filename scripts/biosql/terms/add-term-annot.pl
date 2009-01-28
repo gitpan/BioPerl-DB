@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #
-# $Id: add-term-annot.pl,v 1.1 2004/07/27 03:29:51 lapp Exp $
+# $Id: add-term-annot.pl 525 2004-07-27 03:29:51Z lapp $
 #
 # Cared for by Hilmar Lapp <hlapp at gmx.net>
 #

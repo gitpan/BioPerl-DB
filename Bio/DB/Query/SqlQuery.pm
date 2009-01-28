@@ -1,4 +1,4 @@
-# $Id: SqlQuery.pm,v 1.2 2003/06/03 09:36:42 heikki Exp $
+# $Id: SqlQuery.pm 452 2003-06-03 09:36:42Z heikki $
 
 #
 # Copyright Chris Mungall <cmungall@fruitfly.org>

@@ -3,26 +3,26 @@
 # This is a Module::Build script for bioperl-db installation.
 # See http://search.cpan.org/~kwilliams/Module-Build/lib/Module/Build.pm
 
-# Uses a custom subclass of Module::Build called ModuleBuildBioperl that
-# doesn't get installed
+# Uses a custom subclass of Module::Build called Bio::Root::Build
 
 use strict;
-use ModuleBuildBioperl;
+use Bio::Root::Build;
 
-# Set up the ModuleBuildBioperl object
-my $build = ModuleBuildBioperl->new(
+# Set up the Bio::Root::Build object
+my $build = Bio::Root::Build->new(
     module_name         => 'Bio',
-    dist_name           => 'bioperl-db',
-    dist_version        => 1.005002100,
-    dist_author         => 'Bioperl Team <bioperl-l@bioperl.org>',
-    dist_abstract       => 'bioperl-db - package for biological databases',
-    license             => 'artistic',
+    dist_name           => 'BioPerl-db',
+    dist_version        => '1.005009_001',
+    dist_author         => 'BioPerl Team <bioperl-l@bioperl.org>',
+    dist_abstract       => 'BioPerl-db - package for biological databases',
+    license             => 'perl',
     requires            => {
                             'perl'                      => '5.6.1',
-                            'Bio::Root::Version'        => '1.5.2',
+                            'Bio::Root::Version'        => '1.006000',
                             'DBI'                       => 0
                            },
-    dynamic_config      => 1
+    dynamic_config      => 1,
+    create_makefile_pl  => 'passthrough'
     
     #pm_files           => {} # modules in Bio are treated as if they were in lib and auto-installed
     #script_files       => [] # scripts in scripts directory are installed on-demand

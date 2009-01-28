@@ -1,4 +1,4 @@
-# $Id: TermAdaptor.pm,v 1.12 2006/07/04 22:23:12 mauricio Exp $
+# $Id: TermAdaptor.pm 15330 2009-01-11 22:39:22Z cjfields $
 #
 # BioPerl module for Bio::DB::BioSQL::TermAdaptor
 #
@@ -277,7 +277,7 @@ sub store_children{
     }
     # we also possibly have db-xrefs to store
     my $dbladp = $self->db->get_object_adaptor("Bio::Annotation::DBLink");
-    foreach my $dbl ($obj->get_dblinks()) {
+    foreach my $dbl ($obj->get_dbxrefs()) {
 	# terms store dblinks as flat strings currently
 	if(!ref($dbl)) {
 	    # some ontologies have URLs here or even whole sentences (check
@@ -334,8 +334,8 @@ sub attach_children{
     my $dbladp = $self->db->get_object_adaptor("Bio::Annotation::DBLink");
     my $qres = $dbladp->find_by_association(-objs => [$obj,$dbladp]);
     while(my $dbl = $qres->next_object()) {
-	# terms store dblinks as flat strings currently
-	$obj->add_dblink($dbl->namespace_string());
+      # terms store dblinks as objects
+      $obj->add_dbxref([$dbl]);
     }
     # retrieve the synonyms (synonyms aren't objects in their own right
     # in bioperl - although they could be)

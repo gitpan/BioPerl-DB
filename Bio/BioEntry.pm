@@ -1,4 +1,4 @@
-# $Id: BioEntry.pm,v 1.3 2006/07/04 04:38:07 mauricio Exp $
+# $Id: BioEntry.pm 611 2007-06-14 15:29:15Z sendu $
 #
 # BioPerl module for Bio::BioEntry
 #
@@ -77,7 +77,7 @@ use Bio::DescribableI;
 =head2 new
 
  Title   : new
- Usage   : my $obj = new Bio::BioEntry();
+ Usage   : my $obj = Bio::BioEntry->new();
  Function: Builds a new Bio::BioEntry object 
  Returns : an instance of Bio::BioEntry
  Args    :

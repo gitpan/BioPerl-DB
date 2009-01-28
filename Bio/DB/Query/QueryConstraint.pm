@@ -1,4 +1,4 @@
-# $Id: QueryConstraint.pm,v 1.5 2003/06/10 03:17:31 juguang Exp $
+# $Id: QueryConstraint.pm 453 2003-06-10 03:17:31Z juguang $
 
 #
 # Copyright Chris Mungall <cmungall@fruitfly.org>

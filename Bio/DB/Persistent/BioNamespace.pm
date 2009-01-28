@@ -1,4 +1,4 @@
-# $Id: BioNamespace.pm,v 1.4 2006/07/04 04:38:07 mauricio Exp $
+# $Id: BioNamespace.pm 611 2007-06-14 15:29:15Z sendu $
 #
 # BioPerl module for Bio::DB::Persistent::BioNamespace
 #
@@ -76,7 +76,7 @@ use Bio::IdentifiableI;
 =head2 new
 
  Title   : new
- Usage   : my $obj = new Bio::DB::Persistent::BioNamespace();
+ Usage   : my $obj = Bio::DB::Persistent::BioNamespace->new();
  Function: Builds a new Bio::DB::Persistent::BioNamespace object 
  Returns : an instance of Bio::DB::Persistent::BioNamespace
  Args    :

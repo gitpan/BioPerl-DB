@@ -1,4 +1,4 @@
-# $Id: SeqFeatureAdaptor.pm,v 1.31 2006/07/04 22:23:12 mauricio Exp $
+# $Id: SeqFeatureAdaptor.pm 567 2006-07-04 22:23:12Z mauricio $
 #
 # BioPerl module for Bio::DB::BioSQL::SeqFeatureAdaptor
 #

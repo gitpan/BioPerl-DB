@@ -1,4 +1,4 @@
-# $Id: BasePersistenceAdaptorDriver.pm,v 1.16 2006/07/04 22:23:12 mauricio Exp $
+# $Id: BasePersistenceAdaptorDriver.pm 611 2007-06-14 15:29:15Z sendu $
 #
 # BioPerl module for Bio::DB::BioSQL::Oracle::BasePersistenceAdaptorDriver
 #
@@ -214,7 +214,7 @@ my $schema_sequence = "BS_SEQUENCE";
 =head2 new
 
  Title   : new
- Usage   : my $obj = new Bio::DB::BioSQL::Oracle::BasePersistenceAdaptorDriver();
+ Usage   : my $obj = Bio::DB::BioSQL::Oracle::BasePersistenceAdaptorDriver->new();
  Function: Builds a new Bio::DB::BioSQL::Oracle::BasePersistenceAdaptorDriver object 
  Returns : an instance of Bio::DB::BioSQL::Oracle::BasePersistenceAdaptorDriver
  Args    :

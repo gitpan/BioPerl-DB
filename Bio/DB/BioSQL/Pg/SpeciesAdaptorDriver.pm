@@ -1,4 +1,4 @@
-# $Id: SpeciesAdaptorDriver.pm,v 1.5 2006/07/04 22:23:12 mauricio Exp $
+# $Id: SpeciesAdaptorDriver.pm 611 2007-06-14 15:29:15Z sendu $
 #
 # BioPerl module for Bio::DB::BioSQL::Pg::SpeciesAdaptorDriver
 #
@@ -90,7 +90,7 @@ use Bio::DB::BioSQL::Pg::BasePersistenceAdaptorDriver;
 =head2 new
 
  Title   : new
- Usage   : my $obj = new Bio::DB::BioSQL::Pg::SpeciesAdaptorDriver();
+ Usage   : my $obj = Bio::DB::BioSQL::Pg::SpeciesAdaptorDriver->new();
  Function: Builds a new Bio::DB::BioSQL::Pg::SpeciesAdaptorDriver object 
  Returns : an instance of Bio::DB::BioSQL::Pg::SpeciesAdaptorDriver
  Args    :

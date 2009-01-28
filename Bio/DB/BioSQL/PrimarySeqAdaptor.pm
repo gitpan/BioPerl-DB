@@ -1,4 +1,4 @@
-# $Id: PrimarySeqAdaptor.pm,v 1.25 2006/09/11 21:44:16 bosborne Exp $
+# $Id: PrimarySeqAdaptor.pm 575 2006-09-11 21:44:16Z bosborne $
 #
 # BioPerl module for Bio::DB::BioSQL::PrimarySeqAdaptor
 #

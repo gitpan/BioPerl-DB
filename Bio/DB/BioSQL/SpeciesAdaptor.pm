@@ -1,4 +1,4 @@
-# $Id: SpeciesAdaptor.pm,v 1.23 2006/07/04 22:23:12 mauricio Exp $
+# $Id: SpeciesAdaptor.pm 567 2006-07-04 22:23:12Z mauricio $
 #
 # BioPerl module for Bio::DB::BioSQL::SpeciesAdaptor
 #

@@ -1,4 +1,4 @@
-# $Id: SimpleValueAdaptor.pm,v 1.13 2006/07/04 22:23:12 mauricio Exp $
+# $Id: SimpleValueAdaptor.pm 567 2006-07-04 22:23:12Z mauricio $
 #
 # BioPerl module for Bio::DB::BioSQL::SimpleValueAdaptor
 #

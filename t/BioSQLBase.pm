@@ -1,4 +1,4 @@
-# $Id: BioSQLBase.pm,v 1.4 2002/10/01 03:00:40 lapp Exp $
+# $Id: BioSQLBase.pm 353 2002-10-01 03:02:00Z lapp $
 
 #
 # (c) Hilmar Lapp, hlapp at gnf.org, 2002.

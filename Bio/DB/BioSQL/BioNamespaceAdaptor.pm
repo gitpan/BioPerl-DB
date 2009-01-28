@@ -1,4 +1,4 @@
-# $Id: BioNamespaceAdaptor.pm,v 1.4 2003/06/03 09:36:41 heikki Exp $
+# $Id: BioNamespaceAdaptor.pm 452 2003-06-03 09:36:42Z heikki $
 #
 # BioPerl module for Bio::DB::BioSQL::BioNamespaceAdaptor
 #

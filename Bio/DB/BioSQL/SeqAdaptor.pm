@@ -1,4 +1,4 @@
-# $Id: SeqAdaptor.pm,v 1.53 2006/09/11 21:44:16 bosborne Exp $
+# $Id: SeqAdaptor.pm 14601 2008-03-05 18:12:35Z cjfields $
 
 #
 # BioPerl module for Bio::DB::BioSQL::SeqAdaptor
@@ -285,8 +285,10 @@ sub attach_children{
     # there may be features for this seq: search for those having a FK to
     # the seq
     my $query = Bio::DB::Query::BioQuery->new(
-                                   -datacollections => ["Bio::SeqFeatureI t1"],
-		                   -where => ["t1.entire_seq = ?"]);
+                            -datacollections => ["Bio::SeqFeatureI t1"],
+		                    -where => ["t1.entire_seq = ?"],
+                            -order => ["t1.rank"],
+                            );
     $qres = $self->_feat_adaptor()->find_by_query(
 				   $query,
 				   -name => "FIND FEATURE BY SEQ",

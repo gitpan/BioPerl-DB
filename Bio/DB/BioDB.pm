@@ -1,4 +1,4 @@
-# $Id: BioDB.pm,v 1.13 2006/09/08 21:19:37 bosborne Exp $
+# $Id: BioDB.pm 569 2006-09-08 21:19:37Z bosborne $
 
 #
 # (c) Hilmar Lapp, hlapp at gmx.net, 2002.

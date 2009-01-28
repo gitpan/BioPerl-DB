@@ -1,4 +1,4 @@
-# $Id: SeqFeature.pm,v 1.1 2002/10/01 03:00:39 lapp Exp $
+# $Id: SeqFeature.pm 353 2002-10-01 03:02:00Z lapp $
 #
 # BioPerl module for Bio::DB::Persistent::SeqFeature
 #

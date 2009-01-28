@@ -1,4 +1,4 @@
-# $Id: del-assocs-sql.pl,v 1.2 2003/11/06 02:10:58 lapp Exp $
+# $Id: del-assocs-sql.pl 479 2003-11-06 02:10:58Z lapp $
 #
 # This is a closure that may be used as an argument to the --mergeobjs
 # option of load-seqdatabase.pl.

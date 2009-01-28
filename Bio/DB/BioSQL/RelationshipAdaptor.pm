@@ -1,4 +1,4 @@
-# $Id: RelationshipAdaptor.pm,v 1.6 2006/07/04 22:23:12 mauricio Exp $
+# $Id: RelationshipAdaptor.pm 567 2006-07-04 22:23:12Z mauricio $
 #
 # BioPerl module for Bio::DB::BioSQL::RelationshipAdaptor
 #

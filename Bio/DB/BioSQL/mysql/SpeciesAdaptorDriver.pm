@@ -1,4 +1,4 @@
-# $Id: SpeciesAdaptorDriver.pm,v 1.8 2006/07/04 22:23:12 mauricio Exp $
+# $Id: SpeciesAdaptorDriver.pm 614 2007-09-03 05:36:17Z cjfields $
 #
 # BioPerl module for Bio::DB::BioSQL::mysql::SpeciesAdaptorDriver
 #
@@ -89,7 +89,7 @@ use Bio::DB::BioSQL::mysql::BasePersistenceAdaptorDriver;
 =head2 new
 
  Title   : new
- Usage   : my $obj = new Bio::DB::BioSQL::mysql::SpeciesAdaptorDriver();
+ Usage   : my $obj = Bio::DB::BioSQL::mysql::SpeciesAdaptorDriver->new();
  Function: Builds a new Bio::DB::BioSQL::mysql::SpeciesAdaptorDriver object 
  Returns : an instance of Bio::DB::BioSQL::mysql::SpeciesAdaptorDriver
  Args    :
@@ -485,7 +485,7 @@ sub get_classification{
 	    ", node.".$slotmap->{"node_rank"}.
 	    " FROM $node_table node, $node_table taxon, $name_table name".
 	    " WHERE name.$fkname = node.$pkname AND".
-	    " taxon.left_value BETWEEN node.left_value AND node.right_value".
+	    " taxon.left_value >= node.left_value AND taxon.left_value <= node.right_value".
 	    " AND taxon.$pkname = ?".
 	    " AND name.".$slotmap->{"name_class"}." = 'scientific name'".
 	    " ORDER BY node.left_value";

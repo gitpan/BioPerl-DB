@@ -1,4 +1,4 @@
-# $Id: PrebuiltResult.pm,v 1.3 2006/07/04 04:38:07 mauricio Exp $
+# $Id: PrebuiltResult.pm 611 2007-06-14 15:29:15Z sendu $
 #
 # BioPerl module for Bio::DB::Query::PrebuiltResult
 #
@@ -92,7 +92,7 @@ use Bio::Root::Root;
 =head2 new
 
  Title   : new
- Usage   : my $obj = new Bio::DB::Query::PrebuiltResult();
+ Usage   : my $obj = Bio::DB::Query::PrebuiltResult->new();
  Function: Builds a new Bio::DB::Query::PrebuiltResult object 
  Returns : an instance of Bio::DB::Query::PrebuiltResult
  Args    : named parameters

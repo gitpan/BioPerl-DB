@@ -1,4 +1,4 @@
-# $Id: LocationAdaptor.pm,v 1.7 2004/07/27 03:08:11 lapp Exp $
+# $Id: LocationAdaptor.pm 522 2004-07-27 03:08:11Z lapp $
 #
 # BioPerl module for Bio::DB::BioSQL::LocationAdaptor
 #

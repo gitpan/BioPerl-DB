@@ -1,4 +1,4 @@
-# $Id: AnnotationCollectionAdaptor.pm,v 1.14 2006/09/10 02:35:35 bosborne Exp $
+# $Id: AnnotationCollectionAdaptor.pm 611 2007-06-14 15:29:15Z sendu $
 
 #
 # BioPerl module for Bio::DB::BioSQL::AnnotationCollectionAdaptor
@@ -109,7 +109,7 @@ my %annotation_type_map = (
 =head2 new
 
  Title   : new
- Usage   : my $obj = new Bio::DB::BioSQL::AnnotationCollectionAdaptor();
+ Usage   : my $obj = Bio::DB::BioSQL::AnnotationCollectionAdaptor->new();
  Function: Builds a new Bio::DB::BioSQL::AnnotationCollectionAdaptor object 
  Returns : an instance of Bio::DB::BioSQL::AnnotationCollectionAdaptor
  Args    :

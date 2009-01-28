@@ -1,4 +1,4 @@
-# $Id: PersistentObjectFactory.pm,v 1.3 2006/07/04 04:38:07 mauricio Exp $
+# $Id: PersistentObjectFactory.pm 611 2007-06-14 15:29:15Z sendu $
 #
 # BioPerl module for Bio::DB::Persistent::PersistentObjectFactory
 #
@@ -76,7 +76,7 @@ use Bio::Factory::ObjectFactoryI;
 =head2 new
 
  Title   : new
- Usage   : my $obj = new Bio::DB::Persistent::PersistentObjectFactory();
+ Usage   : my $obj = Bio::DB::Persistent::PersistentObjectFactory->new();
  Function: Builds a new Bio::DB::Persistent::PersistentObjectFactory object 
  Returns : an instance of Bio::DB::Persistent::PersistentObjectFactory
  Args    : Named parameters, specifically

@@ -1,4 +1,4 @@
-# $Id: BiosequenceAdaptor.pm,v 1.9 2005/06/26 17:37:32 lapp Exp $
+# $Id: BiosequenceAdaptor.pm 549 2005-06-26 17:37:32Z lapp $
 #
 # BioPerl module for Bio::DB::BioSQL::BiosequenceAdaptor
 #

@@ -1,4 +1,4 @@
-# $Id: freshen-annot.pl,v 1.2 2003/07/16 07:06:34 lapp Exp $
+# $Id: freshen-annot.pl 465 2003-07-16 07:06:34Z lapp $
 #
 # This is a closure that may be used as an argument to the --mergeobjs
 # option of load-seqdatabase.pl.

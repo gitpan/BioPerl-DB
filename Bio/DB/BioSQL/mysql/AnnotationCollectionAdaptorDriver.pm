@@ -1,4 +1,4 @@
-# $Id: AnnotationCollectionAdaptorDriver.pm,v 1.4 2006/07/04 04:38:07 mauricio Exp $
+# $Id: AnnotationCollectionAdaptorDriver.pm 566 2006-07-04 04:38:07Z mauricio $
 #
 # BioPerl module for Bio::DB::BioSQL::mysql::AnnotationCollectionAdaptorDriver
 #

@@ -1,4 +1,4 @@
-# $Id: TermAdaptorDriver.pm,v 1.5 2006/07/04 22:23:12 mauricio Exp $
+# $Id: TermAdaptorDriver.pm 567 2006-07-04 22:23:12Z mauricio $
 #
 # BioPerl module for Bio::DB::BioSQL::mysql::TermAdaptorDriver
 #

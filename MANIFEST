@@ -76,11 +76,8 @@ Changes
 docs/HOWTO-MySQL.html
 INSTALL
 LICENSE
-Makefile.PL
 MANIFEST			This list of files
-META.yml
 model/bioperl-maps.dia
-ModuleBuildBioperl.pm
 onto-term.patch
 README
 scripts/biosql/bioentry2flat.pl
@@ -134,4 +131,22 @@ t/data/Titin.fasta
 t/data/unigene.data
 t/DBHarness.conf.example
 t/DBTestHarness.pm
-t/Test.pm
+t/lib/Sub/Uplevel.pm
+t/lib/Test/Builder.pm
+t/lib/Test/Builder/Module.pm
+t/lib/Test/Builder/Tester.pm
+t/lib/Test/Exception.pm
+t/lib/Test/Harness.pm
+t/lib/Test/Harness/Assert.pm
+t/lib/Test/Harness/Iterator.pm
+t/lib/Test/Harness/Point.pm
+t/lib/Test/Harness/Results.pm
+t/lib/Test/Harness/Straps.pm
+t/lib/Test/Harness/TAP.pod
+t/lib/Test/Harness/Util.pm
+t/lib/Test/More.pm
+t/lib/Test/Simple.pm
+t/lib/Test/Tutorial.pod
+t/lib/Test/Warn.pm
+Makefile.PL
+META.yml

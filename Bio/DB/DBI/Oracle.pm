@@ -1,4 +1,4 @@
-# $Id: Oracle.pm,v 1.8 2006/07/04 04:38:07 mauricio Exp $
+# $Id: Oracle.pm 611 2007-06-14 15:29:15Z sendu $
 #
 # BioPerl module for Bio::DB::DBI::Oracle
 #
@@ -87,7 +87,7 @@ use Bio::DB::DBI::base;
 =head2 new
 
  Title   : new
- Usage   : my $obj = new Bio::DB::DBI::Oracle();
+ Usage   : my $obj = Bio::DB::DBI::Oracle->new();
  Function: Builds a new Bio::DB::DBI::Oracle object using the passed named 
            parameters.
  Returns : an instance of Bio::DB::DBI::Oracle

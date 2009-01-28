@@ -1,4 +1,4 @@
-# $Id: DBQueryResult.pm,v 1.4 2006/07/04 04:38:07 mauricio Exp $
+# $Id: DBQueryResult.pm 611 2007-06-14 15:29:15Z sendu $
 #
 # BioPerl module for Bio::DB::Query::DBQueryResult
 #
@@ -92,7 +92,7 @@ use Bio::Root::Root;
 =head2 new
 
  Title   : new
- Usage   : my $obj = new Bio::DB::Query::DBQueryResult();
+ Usage   : my $obj = Bio::DB::Query::DBQueryResult->new();
  Function: Builds a new Bio::DB::Query::DBQueryResult object 
  Returns : an instance of Bio::DB::Query::DBQueryResult
  Args    : named parameters

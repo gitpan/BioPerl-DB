@@ -1,4 +1,4 @@
-# $Id: SeqDB.pm,v 1.5 2006/09/11 17:54:34 bosborne Exp $
+# $Id: SeqDB.pm 574 2006-09-11 17:54:34Z bosborne $
 
 #
 # BioPerl module for Bio::CacheServer::SeqDB

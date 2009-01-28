@@ -1,4 +1,4 @@
-# $Id: SimpleDBContext.pm,v 1.8 2006/07/04 04:38:07 mauricio Exp $
+# $Id: SimpleDBContext.pm 611 2007-06-14 15:29:15Z sendu $
 #
 # BioPerl module for SimpleDBContext
 #
@@ -91,7 +91,7 @@ use Bio::DB::DBI;
 =head2 new
 
  Title   : new
- Usage   : my $obj = new Bio::DB::SimpleDBContext();
+ Usage   : my $obj = Bio::DB::SimpleDBContext->new();
  Function: Builds a new Bio::DB::SimpleDBContext object 
  Returns : an instance of Bio::DB::SimpleDBContext
  Args    : Named parameters. Currently recognized are
@@ -105,6 +105,9 @@ use Bio::DB::DBI;
              -dsn       the DSN string to use verbatim for connecting;
                         if supplied, other parameters will not change
                         or add to the value (see method dsn())
+             -schema    the schema under which the database tables
+                        reside, if the driver needs this (for example,
+                        for PostgreSQL)
 
 =cut
 
@@ -119,6 +122,7 @@ sub new {
         $user,
         $password,
         $port,
+        $schema,
         ) = $self->_rearrange([qw(DSN
                                   DBNAME
 				  HOST
@@ -126,6 +130,7 @@ sub new {
 				  USER
 				  PASS
 				  PORT
+                                  SCHEMA
 				  )],@args);
 
     $self->dsn($dsn) if $dsn;
@@ -135,6 +140,7 @@ sub new {
     $self->driver($driver || "mysql") unless $self->driver();
     $self->password($password) if defined($password);
     $self->port($port) if defined($port);
+    $self->schema($schema) if defined($schema);
     return $self;
 }
 
@@ -362,6 +368,25 @@ sub dbi{
 	$self->{'dbi'} = $dbimod->new(-dbcontext => $self);
     }
     return $self->{'dbi'};
+}
+
+=head2 schema
+
+ Title   : schema
+ Usage   : $dbc->schema($newval)
+ Function: Get/set the schema in which the database tables reside.
+ Example : 
+ Returns : value of schema (a scalar)
+ Args    : on set, new value (a scalar or undef, optional)
+
+
+=cut
+
+sub schema{
+    my $self = shift;
+
+    return $self->{'schema'} = shift if @_;
+    return $self->{'schema'};
 }
 
 1;

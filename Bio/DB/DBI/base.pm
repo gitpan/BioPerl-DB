@@ -1,4 +1,4 @@
-# $Id: base.pm,v 1.10 2006/07/04 04:38:07 mauricio Exp $
+# $Id: base.pm 617 2007-10-23 16:55:34Z cjfields $
 #
 # BioPerl module for Bio::DB::DBI::base
 #
@@ -245,7 +245,7 @@ sub new_connection{
     $self->throw("mandatory argument dbcontext not supplied (internal error?)")
 	unless $dbc;
     my $dsn = $self->build_dsn($dbc);
-    $self->debug("new_connection(): dsn=$dsn; user=" .$dbc->username() ."\n");
+    $self->debug("new_connection(): dsn=$dsn; user=" . (defined $dbc->username() ? $dbc->username() : 'undef') ."\n"); # undef: postgres 'ident sameuser' login
 
     my $dbh;
     eval {

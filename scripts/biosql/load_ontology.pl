@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #
-# $Id: load_ontology.pl,v 1.11 2005/09/24 04:02:25 lapp Exp $
+# $Id: load_ontology.pl 14776 2008-08-01 01:54:29Z lapp $
 #
 # Cared for by Hilmar Lapp <hlapp at gmx.net>
 #
@@ -43,8 +43,8 @@ load_ontology.pl
 
 =head1 DESCRIPTION
 
-This script loads a bioperl-db with an ontology. There are a number of
-options to do with where the bioperl-db database is (ie, hostname,
+This script loads a BioSQL database with an ontology. There are a number of
+options to do with where the BioSQL database is (ie, hostname,
 user for database, password, database name) followed by the database
 name you wish to load this into and then any number of files that make
 up the ontology. The files are assumed formatted identically with the
@@ -105,6 +105,13 @@ Consult the POD of your DBI driver for how to properly format the DSN
 for it. A typical example is dbi:Pg:dbname=biosql;host=foo.bar.edu
 (for PostgreSQL). Note that the DSN will be specific to the driver
 being used.
+
+=item --schema schemaname
+
+The schema under which the BioSQL tables reside in the database. For
+Oracle and MySQL this is synonymous with the user, and won't have an
+effect. PostgreSQL since v7.4 supports schemas as the namespace for
+collections of tables within a database.
 
 =item --initrc paramfile
 
@@ -360,6 +367,7 @@ my $dbname;
 my $dbuser;
 my $driver;
 my $dbpass;
+my $schema;
 my $format = 'goflat';
 my $fmtargs = '';
 my $namespace = "bioperl ontology";
@@ -408,6 +416,7 @@ my $ok = GetOptions( 'host:s'      => \$host,
 		     'dbuser:s'    => \$dbuser,
 		     'dbpass:s'    => \$dbpass,
                      'dsn=s'       => \$dsn,
+                     'schema=s'    => \$schema,
 		     'format:s'    => \$format,
 		     'fmtargs=s'   => \$fmtargs,
                      'initrc:s'    => \$initrc,
@@ -505,6 +514,7 @@ my $db = Bio::DB::BioDB->new(-database   => "biosql",
 			     -user       => $dbuser,
 			     -pass       => $dbpass,
                              -dsn        => $dsn,
+                             -schema     => $schema,
                              -initrc     => $initrc,
 			     );
 $db->verbose($debug) if $debug > 0;

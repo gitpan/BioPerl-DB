@@ -5,7 +5,7 @@
 # software package, or see http://www.perl.com/language/misc/Artistic.html)
 # for the terms under which you may use, modify, and redistribute this module.
 #
-# $Id: load_seqdatabase.pl,v 1.24 2006/01/19 21:34:29 lapp Exp $
+# $Id: load_seqdatabase.pl 14776 2008-08-01 01:54:29Z lapp $
 #
 
 =head1 NAME 
@@ -20,7 +20,7 @@ load_seqdatabase.pl
 
 =head1 DESCRIPTION
 
-This script loads a Biosql database with sequences. There are a number
+This script loads a BioSQL database with sequences. There are a number
 of options that have to do with where the database is and how it's
 accessed and the format and namespace of the input files. These are
 followed by any number of file names. The files are assumed to be
@@ -85,6 +85,13 @@ Consult the POD of your DBI driver for how to properly format the DSN
 for it. A typical example is dbi:Pg:dbname=biosql;host=foo.bar.edu
 (for PostgreSQL). Note that the DSN will be specific to the driver
 being used.
+
+=item --schema schemaname
+
+The schema under which the BioSQL tables reside in the database. For
+Oracle and MySQL this is synonymous with the user, and won't have an
+effect. PostgreSQL since v7.4 supports schemas as the namespace for
+collections of tables within a database.
 
 =item --initrc paramfile
 
@@ -347,6 +354,7 @@ my $dbname;
 my $dbuser;
 my $driver;
 my $dbpass;
+my $schema;
 my $format = 'genbank';
 my $fmtargs = '';
 my $namespace = 'bioperl';
@@ -395,6 +403,7 @@ my $ok = GetOptions( 'host=s'         => \$host,
                      'dbuser=s'       => \$dbuser,
                      'dbpass=s'       => \$dbpass,
                      'dsn=s'          => \$dsn,
+                     'schema=s'       => \$schema,
                      'format=s'       => \$format,
                      'fmtargs=s'      => \$fmtargs,
                      'initrc:s'       => \$initrc,
@@ -507,6 +516,7 @@ my $db = Bio::DB::BioDB->new(-database   => "biosql",
                              -user       => $dbuser,
                              -pass       => $dbpass,
                              -dsn        => $dsn,
+                             -schema     => $schema,
                              -initrc     => $initrc,
                              );
 $db->verbose($debug) if $debug > 0;
