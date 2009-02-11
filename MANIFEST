@@ -75,6 +75,7 @@ Build.PL
 Changes
 docs/HOWTO-MySQL.html
 INSTALL
+INSTALL.SKIP
 LICENSE
 MANIFEST			This list of files
 model/bioperl-maps.dia

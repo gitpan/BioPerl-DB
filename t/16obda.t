@@ -1,5 +1,5 @@
 # -*-Perl-*-
-# $Id: 16obda.t 15333 2009-01-11 23:31:46Z sendu $
+# $Id: 16obda.t 15522 2009-02-11 04:16:52Z cjfields $
 
 use vars qw($old_obda_path);
 
@@ -22,7 +22,7 @@ my $biosql = DBTestHarness->new("biosql");
 my $db = $biosql->get_DBAdaptor();
 ok $db;
 
-my $registry_file = "t/data/seqdatabase.ini";
+my $registry_file = test_input_file("seqdatabase.ini");
 my $obda_name = "mytestbiosql";
 # create a temporary seqdatabase.ini file specific for this test database
 write_registry($registry_file);

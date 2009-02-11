@@ -1,5 +1,5 @@
 # -*-Perl-*-
-# $Id: 01dbadaptor.t 15333 2009-01-11 23:31:46Z sendu $
+# $Id: 01dbadaptor.t 15522 2009-02-11 04:16:52Z cjfields $
 
 BEGIN {
     use lib 't';
@@ -57,7 +57,7 @@ my $dbns = $adp->find_by_unique_key($pns);
 if ($dbns) {
     warn("found __dummy__ namespace - leftover from previously aborted test?");
     # remove it
-    is ($dbns->remove(), 1);
+    $dbns->remove();
     # we need to commit here or otherwise we can't safely test for rollback
     $dbns->commit;
 }
