@@ -1,7 +1,9 @@
-# $Id: SeqDB.pm 574 2006-09-11 17:54:34Z bosborne $
+# $Id: SeqDB.pm 15561 2009-02-23 21:10:02Z cjfields $
 
 #
 # BioPerl module for Bio::CacheServer::SeqDB
+#
+# Please direct questions and support issues to <bioperl-l@bioperl.org> 
 #
 # Cared for by Ewan Birney <birney@ebi.ac.uk>
 #
@@ -33,6 +35,17 @@ Bioperl modules. Send your comments and suggestions preferably to one
 of the Bioperl mailing lists.  Your participation is much appreciated.
 
   bioperl-l@bio.perl.org
+
+=head2 Support 
+ 
+Please direct usage questions or support issues to the mailing list:
+  
+L<bioperl-l@bioperl.org>
+  
+rather than to the module maintainer directly. Many experienced and 
+reponsive experts will be able look at the problem and quickly 
+address it. Please include a thorough description of the problem 
+with code and data examples if at all possible.
 
 =head2 Reporting Bugs
 
