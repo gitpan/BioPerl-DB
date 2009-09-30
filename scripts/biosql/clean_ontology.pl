@@ -1,11 +1,12 @@
-# 
+#!/usr/bin/perl
+ 
 # This script will remove specific records in ontology table, as well as in 
 # term, term_relationship, term_path, term_dbxref, term_synonym, which are 
 # related to ontology table.
 # 
 # Tested with mysql.
 #
-# $Id: clean_ontology.pl 503 2004-06-08 17:16:18Z lapp $
+# $Id: clean_ontology.pl 16201 2009-09-29 18:43:14Z cjfields $
 #
 # Cared for by Juguang Xiao, juguang@tll.org.sg
 #

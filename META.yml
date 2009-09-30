@@ -1,234 +1,167 @@
 ---
-name: BioPerl-db
-version: 1.006000
+name: BioPerl-DB
+version: 1.006000_001
 author:
   - 'BioPerl Team <bioperl-l@bioperl.org>'
-abstract: 'BioPerl-db - package for biological databases'
+abstract: 'BioPerl-DB - package for biological databases'
 license: perl
 resources:
   license: http://dev.perl.org/licenses/
 requires:
+  Bio::Root::Version: 1.006001
   DBI: 0
-  perl: 5.6.1
+  perl: v5.6.1
+recommends:
+  Graph::Directed: 0
+configure_requires:
+  Module::Build: 0.35
 dynamic_config: 1
 provides:
   Bio::BioEntry:
-    file: Bio/BioEntry.pm
-    version: 1.006000
+    file: lib/Bio/BioEntry.pm
   Bio::DB::BioDB:
-    file: Bio/DB/BioDB.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioDB.pm
   Bio::DB::BioSQL::AnnotationCollectionAdaptor:
-    file: Bio/DB/BioSQL/AnnotationCollectionAdaptor.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/AnnotationCollectionAdaptor.pm
   Bio::DB::BioSQL::BaseDriver:
-    file: Bio/DB/BioSQL/BaseDriver.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/BaseDriver.pm
   Bio::DB::BioSQL::BasePersistenceAdaptor:
-    file: Bio/DB/BioSQL/BasePersistenceAdaptor.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/BasePersistenceAdaptor.pm
   Bio::DB::BioSQL::BioNamespaceAdaptor:
-    file: Bio/DB/BioSQL/BioNamespaceAdaptor.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/BioNamespaceAdaptor.pm
   Bio::DB::BioSQL::BiosequenceAdaptor:
-    file: Bio/DB/BioSQL/BiosequenceAdaptor.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/BiosequenceAdaptor.pm
   Bio::DB::BioSQL::ClusterAdaptor:
-    file: Bio/DB/BioSQL/ClusterAdaptor.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/ClusterAdaptor.pm
   Bio::DB::BioSQL::CommentAdaptor:
-    file: Bio/DB/BioSQL/CommentAdaptor.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/CommentAdaptor.pm
   Bio::DB::BioSQL::DBAdaptor:
-    file: Bio/DB/BioSQL/DBAdaptor.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/DBAdaptor.pm
   Bio::DB::BioSQL::DBLinkAdaptor:
-    file: Bio/DB/BioSQL/DBLinkAdaptor.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/DBLinkAdaptor.pm
   Bio::DB::BioSQL::LocationAdaptor:
-    file: Bio/DB/BioSQL/LocationAdaptor.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/LocationAdaptor.pm
   Bio::DB::BioSQL::MultiDB:
-    file: Bio/DB/BioSQL/MultiDB.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/MultiDB.pm
   Bio::DB::BioSQL::OBDA:
-    file: Bio/DB/BioSQL/OBDA.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/OBDA.pm
   Bio::DB::BioSQL::OntologyAdaptor:
-    file: Bio/DB/BioSQL/OntologyAdaptor.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/OntologyAdaptor.pm
   Bio::DB::BioSQL::Oracle::AnnotationCollectionAdaptorDriver:
-    file: Bio/DB/BioSQL/Oracle/AnnotationCollectionAdaptorDriver.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/Oracle/AnnotationCollectionAdaptorDriver.pm
   Bio::DB::BioSQL::Oracle::BasePersistenceAdaptorDriver:
-    file: Bio/DB/BioSQL/Oracle/BasePersistenceAdaptorDriver.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/Oracle/BasePersistenceAdaptorDriver.pm
   Bio::DB::BioSQL::Oracle::BiosequenceAdaptorDriver:
-    file: Bio/DB/BioSQL/Oracle/BiosequenceAdaptorDriver.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/Oracle/BiosequenceAdaptorDriver.pm
   Bio::DB::BioSQL::Oracle::PathAdaptorDriver:
-    file: Bio/DB/BioSQL/Oracle/PathAdaptorDriver.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/Oracle/PathAdaptorDriver.pm
   Bio::DB::BioSQL::Oracle::SpeciesAdaptorDriver:
-    file: Bio/DB/BioSQL/Oracle/SpeciesAdaptorDriver.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/Oracle/SpeciesAdaptorDriver.pm
   Bio::DB::BioSQL::Oracle::TermAdaptorDriver:
-    file: Bio/DB/BioSQL/Oracle/TermAdaptorDriver.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/Oracle/TermAdaptorDriver.pm
   Bio::DB::BioSQL::PathAdaptor:
-    file: Bio/DB/BioSQL/PathAdaptor.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/PathAdaptor.pm
   Bio::DB::BioSQL::Pg::AnnotationCollectionAdaptorDriver:
-    file: Bio/DB/BioSQL/Pg/AnnotationCollectionAdaptorDriver.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/Pg/AnnotationCollectionAdaptorDriver.pm
   Bio::DB::BioSQL::Pg::BasePersistenceAdaptorDriver:
-    file: Bio/DB/BioSQL/Pg/BasePersistenceAdaptorDriver.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/Pg/BasePersistenceAdaptorDriver.pm
   Bio::DB::BioSQL::Pg::BiosequenceAdaptorDriver:
-    file: Bio/DB/BioSQL/Pg/BiosequenceAdaptorDriver.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/Pg/BiosequenceAdaptorDriver.pm
   Bio::DB::BioSQL::Pg::PathAdaptorDriver:
-    file: Bio/DB/BioSQL/Pg/PathAdaptorDriver.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/Pg/PathAdaptorDriver.pm
   Bio::DB::BioSQL::Pg::SpeciesAdaptorDriver:
-    file: Bio/DB/BioSQL/Pg/SpeciesAdaptorDriver.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/Pg/SpeciesAdaptorDriver.pm
   Bio::DB::BioSQL::Pg::TermAdaptorDriver:
-    file: Bio/DB/BioSQL/Pg/TermAdaptorDriver.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/Pg/TermAdaptorDriver.pm
   Bio::DB::BioSQL::PrimarySeqAdaptor:
-    file: Bio/DB/BioSQL/PrimarySeqAdaptor.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/PrimarySeqAdaptor.pm
   Bio::DB::BioSQL::ReferenceAdaptor:
-    file: Bio/DB/BioSQL/ReferenceAdaptor.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/ReferenceAdaptor.pm
   Bio::DB::BioSQL::RelationshipAdaptor:
-    file: Bio/DB/BioSQL/RelationshipAdaptor.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/RelationshipAdaptor.pm
   Bio::DB::BioSQL::SeqAdaptor:
-    file: Bio/DB/BioSQL/SeqAdaptor.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/SeqAdaptor.pm
   Bio::DB::BioSQL::SeqFeatureAdaptor:
-    file: Bio/DB/BioSQL/SeqFeatureAdaptor.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/SeqFeatureAdaptor.pm
   Bio::DB::BioSQL::SimpleValueAdaptor:
-    file: Bio/DB/BioSQL/SimpleValueAdaptor.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/SimpleValueAdaptor.pm
   Bio::DB::BioSQL::SpeciesAdaptor:
-    file: Bio/DB/BioSQL/SpeciesAdaptor.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/SpeciesAdaptor.pm
   Bio::DB::BioSQL::TermAdaptor:
-    file: Bio/DB/BioSQL/TermAdaptor.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/TermAdaptor.pm
   Bio::DB::BioSQL::mysql::AnnotationCollectionAdaptorDriver:
-    file: Bio/DB/BioSQL/mysql/AnnotationCollectionAdaptorDriver.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/mysql/AnnotationCollectionAdaptorDriver.pm
   Bio::DB::BioSQL::mysql::BasePersistenceAdaptorDriver:
-    file: Bio/DB/BioSQL/mysql/BasePersistenceAdaptorDriver.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/mysql/BasePersistenceAdaptorDriver.pm
   Bio::DB::BioSQL::mysql::BiosequenceAdaptorDriver:
-    file: Bio/DB/BioSQL/mysql/BiosequenceAdaptorDriver.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/mysql/BiosequenceAdaptorDriver.pm
   Bio::DB::BioSQL::mysql::PathAdaptorDriver:
-    file: Bio/DB/BioSQL/mysql/PathAdaptorDriver.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/mysql/PathAdaptorDriver.pm
   Bio::DB::BioSQL::mysql::SpeciesAdaptorDriver:
-    file: Bio/DB/BioSQL/mysql/SpeciesAdaptorDriver.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/mysql/SpeciesAdaptorDriver.pm
   Bio::DB::BioSQL::mysql::TermAdaptorDriver:
-    file: Bio/DB/BioSQL/mysql/TermAdaptorDriver.pm
-    version: 1.006000
+    file: lib/Bio/DB/BioSQL/mysql/TermAdaptorDriver.pm
   Bio::DB::CacheServer::SeqDB:
-    file: Bio/DB/CacheServer/SeqDB.pm
-    version: 1.006000
+    file: lib/Bio/DB/CacheServer/SeqDB.pm
   Bio::DB::DBAdaptorI:
-    file: Bio/DB/DBAdaptorI.pm
-    version: 1.006000
+    file: lib/Bio/DB/DBAdaptorI.pm
   Bio::DB::DBContextI:
-    file: Bio/DB/DBContextI.pm
-    version: 1.006000
+    file: lib/Bio/DB/DBContextI.pm
   Bio::DB::DBD:
-    file: Bio/DB/DBD.pm
-    version: 1.006000
+    file: lib/Bio/DB/DBD.pm
   Bio::DB::DBI:
-    file: Bio/DB/DBI.pm
-    version: 1.006000
+    file: lib/Bio/DB/DBI.pm
   Bio::DB::DBI::Oracle:
-    file: Bio/DB/DBI/Oracle.pm
-    version: 1.006000
+    file: lib/Bio/DB/DBI/Oracle.pm
   Bio::DB::DBI::Pg:
-    file: Bio/DB/DBI/Pg.pm
-    version: 1.006000
+    file: lib/Bio/DB/DBI/Pg.pm
   Bio::DB::DBI::Transaction:
-    file: Bio/DB/DBI/Transaction.pm
-    version: 1.006000
+    file: lib/Bio/DB/DBI/Transaction.pm
   Bio::DB::DBI::TransactionListener:
-    file: Bio/DB/DBI/TransactionListener.pm
-    version: 1.006000
+    file: lib/Bio/DB/DBI/TransactionListener.pm
   Bio::DB::DBI::base:
-    file: Bio/DB/DBI/base.pm
-    version: 1.006000
+    file: lib/Bio/DB/DBI/base.pm
   Bio::DB::DBI::mysql:
-    file: Bio/DB/DBI/mysql.pm
-    version: 1.006000
+    file: lib/Bio/DB/DBI/mysql.pm
   Bio::DB::EasyArgv:
-    file: Bio/DB/EasyArgv.pm
-    version: 1.006000
+    file: lib/Bio/DB/EasyArgv.pm
   Bio::DB::PersistenceAdaptorI:
-    file: Bio/DB/PersistenceAdaptorI.pm
-    version: 1.006000
+    file: lib/Bio/DB/PersistenceAdaptorI.pm
   Bio::DB::Persistent::BioNamespace:
-    file: Bio/DB/Persistent/BioNamespace.pm
-    version: 1.006000
+    file: lib/Bio/DB/Persistent/BioNamespace.pm
   Bio::DB::Persistent::ObjectRellMapperI:
-    file: Bio/DB/Persistent/ObjectRelMapperI.pm
-    version: 1.006000
+    file: lib/Bio/DB/Persistent/ObjectRelMapperI.pm
   Bio::DB::Persistent::PersistentObject:
-    file: Bio/DB/Persistent/PersistentObject.pm
-    version: 1.006000
+    file: lib/Bio/DB/Persistent/PersistentObject.pm
   Bio::DB::Persistent::PersistentObjectFactory:
-    file: Bio/DB/Persistent/PersistentObjectFactory.pm
-    version: 1.006000
+    file: lib/Bio/DB/Persistent/PersistentObjectFactory.pm
   Bio::DB::Persistent::PrimarySeq:
-    file: Bio/DB/Persistent/PrimarySeq.pm
-    version: 1.006000
+    file: lib/Bio/DB/Persistent/PrimarySeq.pm
   Bio::DB::Persistent::Seq:
-    file: Bio/DB/Persistent/Seq.pm
-    version: 1.006000
+    file: lib/Bio/DB/Persistent/Seq.pm
   Bio::DB::Persistent::SeqFeature:
-    file: Bio/DB/Persistent/SeqFeature.pm
-    version: 1.006000
+    file: lib/Bio/DB/Persistent/SeqFeature.pm
   Bio::DB::PersistentObjectI:
-    file: Bio/DB/PersistentObjectI.pm
-    version: 1.006000
+    file: lib/Bio/DB/PersistentObjectI.pm
   Bio::DB::Query::AbstractQuery:
-    file: Bio/DB/Query/AbstractQuery.pm
-    version: 1.006000
+    file: lib/Bio/DB/Query/AbstractQuery.pm
   Bio::DB::Query::BioQuery:
-    file: Bio/DB/Query/BioQuery.pm
-    version: 1.006000
+    file: lib/Bio/DB/Query/BioQuery.pm
   Bio::DB::Query::DBQueryResult:
-    file: Bio/DB/Query/DBQueryResult.pm
-    version: 1.006000
+    file: lib/Bio/DB/Query/DBQueryResult.pm
   Bio::DB::Query::PrebuiltResult:
-    file: Bio/DB/Query/PrebuiltResult.pm
-    version: 1.006000
+    file: lib/Bio/DB/Query/PrebuiltResult.pm
   Bio::DB::Query::QueryConstraint:
-    file: Bio/DB/Query/QueryConstraint.pm
-    version: 1.006000
+    file: lib/Bio/DB/Query/QueryConstraint.pm
   Bio::DB::Query::QueryResultI:
-    file: Bio/DB/Query/QueryResultI.pm
-    version: 1.006000
+    file: lib/Bio/DB/Query/QueryResultI.pm
   Bio::DB::Query::SqlGenerator:
-    file: Bio/DB/Query/SqlGenerator.pm
-    version: 1.006000
+    file: lib/Bio/DB/Query/SqlGenerator.pm
   Bio::DB::Query::SqlQuery:
-    file: Bio/DB/Query/SqlQuery.pm
-    version: 1.006000
+    file: lib/Bio/DB/Query/SqlQuery.pm
   Bio::DB::SimpleDBContext:
-    file: Bio/DB/SimpleDBContext.pm
-    version: 1.006000
-generated_by: Module::Build version 0.3
+    file: lib/Bio/DB/SimpleDBContext.pm
+generated_by: Module::Build version 0.35
 meta-spec:
-  url: http://module-build.sourceforge.net/META-spec-v1.2.html
-  version: 1.2
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
