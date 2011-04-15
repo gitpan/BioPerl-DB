@@ -1,4 +1,4 @@
-# $Id: BioQuery.pm 570 2006-09-09 21:44:38Z bosborne $
+# $Id$
 
 #
 # Copyright Chris Mungall <cmungall@fruitfly.org>
@@ -216,6 +216,7 @@ sub translate_query{
 	    }
 	    # record the association table alias
 	    $entitymap->{$assoc} = [$alias || $assoc];
+	    $aliasmap->{$alias} = $assoc if $alias;
 	    # resolve all participating entities to table names; at the same
 	    # time we need foreign keys and joins to all participating entities
 	    for(my $i = 0; $i < @entities; $i++) {

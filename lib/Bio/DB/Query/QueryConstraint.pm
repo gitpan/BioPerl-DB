@@ -1,4 +1,4 @@
-# $Id: QueryConstraint.pm 453 2003-06-10 03:17:31Z juguang $
+# $Id$
 
 #
 # Copyright Chris Mungall <cmungall@fruitfly.org>
@@ -125,7 +125,7 @@ sub set {
 	    }
 	}
 	if (ref($arg) eq "ARRAY") {
-	    if (grep {lc($arg->[0]) eq $_} qw(and or)) {
+	    if ($arg->[0] && grep {lc($arg->[0]) eq $_} qw(and or)) {
 		$op = shift @$arg;
 	    }
 	    foreach my $el (@$arg) {

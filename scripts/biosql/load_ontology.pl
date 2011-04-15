@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #
-# $Id: load_ontology.pl 14776 2008-08-01 01:54:29Z lapp $
+# $Id$
 #
 # Cared for by Hilmar Lapp <hlapp at gmx.net>
 #

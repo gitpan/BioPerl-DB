@@ -1,5 +1,5 @@
 # -*-Perl-*-
-# $Id: 05seqfeature.t 15333 2009-01-11 23:31:46Z sendu $
+# $Id$
 
 BEGIN {
     use lib 't';

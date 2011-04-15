@@ -1,4 +1,4 @@
-# $Id: ClusterAdaptor.pm 16216 2009-09-30 04:09:10Z cjfields $
+# $Id$
 #
 # BioPerl module for Bio::DB::BioSQL::ClusterAdaptor
 #
@@ -65,7 +65,7 @@ Report bugs to the Bioperl bug tracking system to help us keep track
  Bug reports can be submitted via email or the web:
 
   bioperl-bugs@bio.perl.org
-  http://bugzilla.open-bio.org/
+  http://redmine.open-bio.org/projects/bioperl/
 
 =head1 AUTHOR - Hilmar Lapp
 

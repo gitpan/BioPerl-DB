@@ -1,5 +1,5 @@
 # -*-Perl-*-
-# $Id: 02species.t 16201 2009-09-29 18:43:14Z cjfields $
+# $Id$
 
 use strict;
 use warnings;

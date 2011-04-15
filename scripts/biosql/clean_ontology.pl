@@ -6,7 +6,7 @@
 # 
 # Tested with mysql.
 #
-# $Id: clean_ontology.pl 16201 2009-09-29 18:43:14Z cjfields $
+# $Id$
 #
 # Cared for by Juguang Xiao, juguang@tll.org.sg
 #

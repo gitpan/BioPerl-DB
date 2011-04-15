@@ -1,5 +1,5 @@
 # -*-Perl-*-
-# $Id: 14query.t 15329 2009-01-11 22:23:24Z cjfields $
+# $Id$
 
 BEGIN {
     use lib '.';

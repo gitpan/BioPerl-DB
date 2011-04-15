@@ -1,4 +1,4 @@
-# $Id: load_interpro.pl 498 2004-04-27 01:36:15Z lapp $
+# $Id$
 #
 # Cared for by Juguang Xiao, juguang@tll.org.sg
 #

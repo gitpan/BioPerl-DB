@@ -77,8 +77,10 @@ lib/Bio/DB/Query/SqlGenerator.pm
 lib/Bio/DB/Query/SqlQuery.pm
 lib/Bio/DB/SimpleDBContext.pm
 LICENSE
+Makefile.PL
 MANIFEST			This list of files
-MANIFEST.SKIP
+META.json
+META.yml
 model/bioperl-maps.dia
 onto-term.patch
 README
@@ -98,9 +100,6 @@ scripts/biosql/terms/importrelation.pl
 scripts/biosql/terms/interpro2go.pl
 scripts/biosql/update-on-new-date.pl
 scripts/biosql/update-on-new-version.pl
-scripts/corba/bioenv_server.pl
-scripts/corba/caching_corba_server.pl
-scripts/corba/test_bioenv.pl
 sql/bibliography-mysql.sql
 sql/markerdb-mysql.sql
 sql/rawdata-mysql.sql
@@ -131,7 +130,6 @@ t/data/swiss.dat
 t/data/test.genbank
 t/data/Titin.fasta
 t/data/unigene.data
-t/DBHarness.biosql.conf
 t/DBHarness.conf.example
 t/DBTestHarness.pm
 t/lib/Sub/Uplevel.pm
@@ -151,5 +149,3 @@ t/lib/Test/More.pm
 t/lib/Test/Simple.pm
 t/lib/Test/Tutorial.pod
 t/lib/Test/Warn.pm
-Makefile.PL
-META.yml

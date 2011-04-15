@@ -1,4 +1,4 @@
-# $Id: DBContextI.pm 610 2007-06-03 01:57:03Z lapp $
+# $Id$
 
 #
 # (c) Hilmar Lapp, hlapp at gmx.net, 2002.

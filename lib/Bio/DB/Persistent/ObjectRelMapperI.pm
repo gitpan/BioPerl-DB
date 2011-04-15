@@ -1,4 +1,4 @@
-# $Id: ObjectRelMapperI.pm 16216 2009-09-30 04:09:10Z cjfields $
+# $Id$
 #
 # BioPerl module for Bio::DB::Persistent::ObjectRelMapperI
 #
@@ -66,7 +66,7 @@ Report bugs to the Bioperl bug tracking system to help us keep track
 of the bugs and their resolution. Bug reports can be submitted via
 the web:
 
-  http://bugzilla.open-bio.org/
+  http://redmine.open-bio.org/projects/bioperl/
 
 =head1 AUTHOR - Hilmar Lapp
 

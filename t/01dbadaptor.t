@@ -1,5 +1,5 @@
 # -*-Perl-*-
-# $Id: 01dbadaptor.t 15522 2009-02-11 04:16:52Z cjfields $
+# $Id$
 
 BEGIN {
     use lib 't';

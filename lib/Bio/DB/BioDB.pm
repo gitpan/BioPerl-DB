@@ -1,5 +1,4 @@
-# $Id: BioDB.pm 569 2006-09-08 21:19:37Z bosborne $
-
+# $Id$
 #
 # (c) Hilmar Lapp, hlapp at gmx.net, 2002.
 # (c) GNF, Genomics Institute of the Novartis Research Foundation, 2002.
@@ -23,7 +22,7 @@ Bio::DB::BioDB - class creating the adaptor factory for a particular database
 =head1 SYNOPSIS
 
     $dbadp = Bio::DB::BioDB->new(
-			               -database => 'biosql',
+			            -database => 'biosql',
                         -user     => 'root',
                         -dbname   => 'pog',
                         -host     => 'caldy',

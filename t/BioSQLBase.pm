@@ -1,4 +1,4 @@
-# $Id: BioSQLBase.pm 353 2002-10-01 03:02:00Z lapp $
+# $Id$
 
 #
 # (c) Hilmar Lapp, hlapp at gnf.org, 2002.

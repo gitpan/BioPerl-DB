@@ -1,4 +1,4 @@
-# $Id: DBTestHarness.pm 528 2004-08-11 15:48:44Z lapp $
+# $Id$
 
 =pod
 

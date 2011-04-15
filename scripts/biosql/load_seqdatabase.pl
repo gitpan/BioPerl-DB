@@ -5,7 +5,7 @@
 # software package, or see http://www.perl.com/language/misc/Artistic.html)
 # for the terms under which you may use, modify, and redistribute this module.
 #
-# $Id: load_seqdatabase.pl 14776 2008-08-01 01:54:29Z lapp $
+# $Id$
 #
 
 =head1 NAME 

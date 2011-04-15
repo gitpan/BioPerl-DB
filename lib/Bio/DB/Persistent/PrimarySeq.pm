@@ -1,4 +1,4 @@
-# $Id: PrimarySeq.pm 16216 2009-09-30 04:09:10Z cjfields $
+# $Id$
 #
 # BioPerl module for Bio::DB::Persistent::PrimarySeq
 #
@@ -70,7 +70,7 @@ the bugs and their resolution.  Bug reports can be submitted via email
 or the web:
 
   bioperl-bugs@bio.perl.org
-  http://bugzilla.perl.org/
+  http://redmine.open-bio.org/projects/bioperl/
 
 =head1 AUTHOR - Hilmar Lapp, Ewan Birney
 

@@ -1,4 +1,4 @@
-# $Id: SeqFeature.pm 16216 2009-09-30 04:09:10Z cjfields $
+# $Id$
 #
 # BioPerl module for Bio::DB::Persistent::SeqFeature
 #

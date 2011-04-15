@@ -1,4 +1,4 @@
-# $Id: update-on-new-date.pl 547 2005-04-14 17:01:24Z lapp $
+# $Id$
 #
 # This is a closure that may be used as an argument to the --mergeobjs
 # option of load-seqdatabase.pl.

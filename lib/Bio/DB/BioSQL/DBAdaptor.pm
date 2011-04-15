@@ -1,4 +1,4 @@
-# $Id: DBAdaptor.pm 575 2006-09-11 21:44:16Z bosborne $
+# $Id$
 
 # POD documentation - main docs before the code
 

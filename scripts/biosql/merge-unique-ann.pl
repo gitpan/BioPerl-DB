@@ -1,4 +1,4 @@
-# $Id: merge-unique-ann.pl 561 2006-01-19 21:35:25Z lapp $
+# $Id$
 #
 # This is a closure that may be used as an argument to the --mergeobjs
 # option of load-seqdatabase.pl.
